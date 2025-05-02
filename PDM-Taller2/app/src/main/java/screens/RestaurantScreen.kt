@@ -1,6 +1,7 @@
 package screens
 
 import android.widget.Toast
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -47,7 +48,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import com.pdmtaller2.LDuque_00013423.restaurants
 import com.pdmtaller2.LDuque_00013423.shoppingCart
 import com.pdmtaller2.LDuque_00013423.ui.theme.FoodSpotByLDuqueTheme
@@ -196,10 +199,11 @@ fun RestaurantScreen(navController: NavController, restaurantId: Int) {
                                     Text(text = "Comprar")
                                 }
                             }
-                            AsyncImage(
-                                model = dish.imageUrl,
-                                contentDescription = dish.description,
-                                modifier.fillMaxSize()
+                            Image(
+                                painter = painterResource(id = dish.imageUrl),
+                                contentDescription = null,
+                                contentScale = ContentScale.Crop,
+                                modifier = Modifier.fillMaxSize()
                             )
                         }
                     }

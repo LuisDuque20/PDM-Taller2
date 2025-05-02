@@ -5,7 +5,7 @@ val restaurants = listOf(
         id = 1,
         name = "Pizza Hut",
         description = "Ven a comer con pizza puch",
-        imageUrl = "",
+        imageUrl = R.drawable.pizzahut,
         categories = listOf("Pizzas", "Postres y Dulces", "Comida rapida"),
         menu = listOf(
             Dish(1, "Pizza Pepperoni", "Rica pizza de pepperoni", ""),
@@ -19,7 +19,7 @@ val restaurants = listOf(
         id = 2,
         name = "Burger King",
         description = "Deliciosas hamburguesas y más",
-        imageUrl = "",
+        imageUrl = R.drawable.burgerking,
         categories = listOf("Hamburguesas", "Papas Fritas", "Comida rapida"),
         menu = listOf(
             Dish(6, "Whopper", "Hamburguesa con carne de res, lechuga, tomate y cebolla", ""),
@@ -33,7 +33,7 @@ val restaurants = listOf(
         id = 3,
         name = "Sushi Itto",
         description = "Auténtico sushi japonés",
-        imageUrl = "",
+        imageUrl = R.drawable.sushiitto,
         categories = listOf("Sushi", "Rollos", "Comida asiatica"),
         menu = listOf(
             Dish(11, "California Roll", "Rollos de sushi con aguacate, cangrejo y pepino", ""),
@@ -47,7 +47,7 @@ val restaurants = listOf(
         id = 4,
         name = "Taco Bell",
         description = "Experimenta la mejor comida mexicana en SV",
-        imageUrl = "",
+        imageUrl = R.drawable.tacobell,
         categories = listOf("Tacos", "Burritos", "Comida mexicana"),
         menu = listOf(
             Dish(16, "Crunchy Taco", "Taco crujiente con carne, lechuga y queso", ""),
@@ -61,7 +61,7 @@ val restaurants = listOf(
         id = 5,
         name = "KFC",
         description = "Pollo frito y más",
-        imageUrl = "",
+        imageUrl = R.drawable.kfc,
         categories = listOf("Pollo", "Complementos", "Comida rapida"),
         menu = listOf(
             Dish(21, "Original Recipe Chicken", "Pollo frito con receta original", ""),
@@ -75,7 +75,7 @@ val restaurants = listOf(
         id = 6,
         name = "Olive Garden",
         description = "Lo mejor de la comida italiana",
-        imageUrl = "",
+        imageUrl = R.drawable.olivegarden,
         categories = listOf("Comida italiana", "Pasta", "Ensaladas"),
         menu = listOf(
             Dish(26, "Lasagna", "Lasaña con carne y salsa marinara", ""),
@@ -89,7 +89,7 @@ val restaurants = listOf(
         id = 7,
         name = "Green Bowl",
         description = "Opciones frescas y saludables",
-        imageUrl = "",
+        imageUrl = R.drawable.greenbowl,
         categories = listOf("Comida saludable", "Ensaladas", "Vegetariano"),
         menu = listOf(
             Dish(31, "Bowl de Quinoa", "Quinoa con vegetales y hummus", ""),
@@ -103,7 +103,7 @@ val restaurants = listOf(
         id = 8,
         name = "Sweet Paradise",
         description = "Dulces para cada antojo",
-        imageUrl = "",
+        imageUrl = R.drawable.sweetparadise,
         categories = listOf("Postres y Dulces", "Repostería"),
         menu = listOf(
             Dish(36, "Cheesecake", "Pastel de queso con frutas", ""),
@@ -117,7 +117,7 @@ val restaurants = listOf(
         id = 9,
         name = "Bebidas & Más",
         description = "Bebidas refrescantes para todos",
-        imageUrl = "",
+        imageUrl = R.drawable.bebidas,
         categories = listOf("Bebidas", "Jugos", "Smoothies"),
         menu = listOf(
             Dish(41, "Limonada", "Limonada natural con hielo", ""),
@@ -131,7 +131,7 @@ val restaurants = listOf(
         id = 10,
         name = "La Taquería del Sol",
         description = "Tacos auténticos mexicanos",
-        imageUrl = "",
+        imageUrl = R.drawable.taqueria,
         categories = listOf("Comida mexicana", "Tacos", "Antojitos"),
         menu = listOf(
             Dish(46, "Tacos al Pastor", "Tacos con carne de cerdo y piña", ""),
@@ -145,7 +145,7 @@ val restaurants = listOf(
         id = 11,
         name = "Ramen House",
         description = "Sabores auténticos de Japón",
-        imageUrl = "",
+        imageUrl = R.drawable.ramenhouse,
         categories = listOf("Comida asiatica", "Japonesa", "Sopas"),
         menu = listOf(
             Dish(51, "Ramen Tonkotsu", "Ramen con caldo de cerdo y huevo", ""),
@@ -159,7 +159,7 @@ val restaurants = listOf(
         id = 12,
         name = "La Vita è Bella",
         description = "Sabores tradicionales de Italia",
-        imageUrl = "",
+        imageUrl = R.drawable.lavitaebella,
         categories = listOf("Comida italiana", "Pasta", "Pizzas"),
         menu = listOf(
             Dish(56, "Risotto", "Arroz cremoso con hongos", ""),
@@ -173,7 +173,7 @@ val restaurants = listOf(
         id = 13,
         name = "Fresh & Fit",
         description = "Tu lugar para comer sano",
-        imageUrl = "",
+        imageUrl = R.drawable.freshandfit,
         categories = listOf("Comida saludable", "Vegano", "Bajo en calorías"),
         menu = listOf(
             Dish(61, "Ensalada de quinoa", "Quinoa con espinaca, zanahoria y aderezo de limón", ""),
@@ -187,7 +187,7 @@ val restaurants = listOf(
         id = 14,
         name = "RefrescArte",
         description = "Bebidas artesanales y naturales",
-        imageUrl = "",
+        imageUrl = R.drawable.refrescarte,
         categories = listOf("Bebidas", "Jugos Naturales", "Tés"),
         menu = listOf(
             Dish(66, "Agua de Jamaica", "Bebida fría de flor de Jamaica", ""),

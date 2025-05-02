@@ -1,8 +1,11 @@
 package screens
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -19,8 +22,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.ShoppingCart
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -36,10 +37,15 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.lazy.items
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import coil.compose.AsyncImage
+import com.pdmtaller2.LDuque_00013423.R
 import com.pdmtaller2.LDuque_00013423.restaurants
 import com.pdmtaller2.LDuque_00013423.ui.theme.FoodSpotByLDuqueTheme
+import java.io.File
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -121,16 +127,26 @@ fun MainScreen(navController: NavController) {
                                 horizontalAlignment = Alignment.CenterHorizontally,
                                 verticalArrangement = Arrangement.Center
                             ) {
-                                Button(
-                                    onClick = { navController.navigate("RestaurantScreen/${restaurant.id}") },
-                                    modifier = Modifier.fillMaxSize(),
-                                    shape = RoundedCornerShape(10),
-                                    colors = ButtonDefaults.buttonColors(
-                                        containerColor = Color.Green,
-                                        contentColor = Color.White
-                                    )
+                                Box(
+                                    modifier = Modifier
+                                        .fillMaxSize()
+                                        .clickable { navController.navigate("RestaurantScreen/${restaurant.id}")}
+                                        .background(Color.White)
                                 ) {
-                                    Text(text = restaurant.name, color = Color.White)
+                                    Image(
+                                        painter = painterResource(id = restaurant.imageUrl),
+                                        contentDescription = null,
+                                        contentScale = ContentScale.Crop,
+                                        modifier = Modifier.fillMaxSize()
+                                    )
+                                    Text(
+                                        text = restaurant.name,
+                                        color = Color.White,
+                                        modifier = Modifier
+                                            .align(Alignment.Center)
+                                            .background(Color.Black.copy(alpha = 0.5f))
+                                            .padding(8.dp)
+                                    )
                                 }
                             }
                         }
