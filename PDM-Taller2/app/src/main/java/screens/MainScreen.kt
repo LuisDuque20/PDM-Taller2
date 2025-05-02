@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -34,6 +35,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.foundation.lazy.items
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.pdmtaller2.LDuque_00013423.restaurants
@@ -61,7 +63,7 @@ fun MainScreen(navController: NavController) {
         },
         bottomBar = {
             Row(
-                modifier = Modifier.fillMaxWidth(),
+                modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceAround
             ) {
                 IconButton(onClick = { navController.navigate("MainScreen") }) {
@@ -76,34 +78,40 @@ fun MainScreen(navController: NavController) {
             }
         }
     ) { paddingValues ->
-        Column(
+        LazyColumn(
             modifier
                 .fillMaxSize()
                 .background(Color(0xFF0a1e54))
                 .padding(paddingValues)
-                .padding(horizontal = 20.dp, vertical = 20.dp),
-            horizontalAlignment = Alignment.Start,
-            verticalArrangement = Arrangement.Top
+                .padding(horizontal = 20.dp, vertical = 20.dp)
         ) {
-            val categories = listOf("Comida mexicana", "Comida rapida", "Postres")
-            categories.forEach { category ->
+            val categories = listOf(
+                "Comida rapida",
+                "Comida mexicana",
+                "Comida italiana",
+                "Comida asiatica",
+                "Comida saludable",
+                "Postres y Dulces",
+                "Bebidas"
+            )
+            items(categories) { category ->
                 Column {
                     Text(text = category, color = Color.White)
+
+                    val filteredRestaurants = restaurants.filter { it.categories.contains(category) }
+
                     LazyRow(
-                        modifier = Modifier
+                        modifier
                             .fillMaxWidth()
                             .height(200.dp)
                             .border(width = 2.dp, color = Color.White, shape = RoundedCornerShape(10))
                             .padding(5.dp)
                     ) {
-                        val filteredRestaurants = restaurants.filter { it.categories.contains(category) }
-                        items(filteredRestaurants.size) { index ->
-                            val restaurant = filteredRestaurants[index]
+                        items(filteredRestaurants) { restaurant ->
                             Column(
-                                modifier = Modifier
+                                modifier
                                     .padding(10.dp)
                                     .fillMaxHeight()
-                                    .width(150.dp)
                                     .width(200.dp)
                                     .border(
                                         width = 1.dp,
@@ -113,14 +121,15 @@ fun MainScreen(navController: NavController) {
                                 horizontalAlignment = Alignment.CenterHorizontally,
                                 verticalArrangement = Arrangement.Center
                             ) {
-                                Button(onClick = {navController.navigate("RestaurantScreen/${restaurant.id}")}
-                                    , modifier.fillMaxSize(),
+                                Button(
+                                    onClick = { navController.navigate("RestaurantScreen/${restaurant.id}") },
+                                    modifier = Modifier.fillMaxSize(),
                                     shape = RoundedCornerShape(10),
                                     colors = ButtonDefaults.buttonColors(
-                                    containerColor = Color.Green,
-                                    contentColor = Color.White
-                                ))
-                                {
+                                        containerColor = Color.Green,
+                                        contentColor = Color.White
+                                    )
+                                ) {
                                     Text(text = restaurant.name, color = Color.White)
                                 }
                             }

@@ -40,9 +40,9 @@ import androidx.navigation.compose.rememberNavController
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.Button
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -59,7 +59,7 @@ fun RestaurantScreen(navController: NavController, restaurantId: Int) {
     val context = LocalContext.current
     val restaurant = restaurants.find { it.id == restaurantId }
     val shoppingCart = shoppingCart
-    var searchQuery by remember { mutableStateOf("") }
+    var buscarPlatillo by remember { mutableStateOf("") }
 
     Scaffold(
         topBar = {
@@ -84,7 +84,7 @@ fun RestaurantScreen(navController: NavController, restaurantId: Int) {
         },
         bottomBar = {
             Row(
-                modifier = Modifier.fillMaxWidth(),
+                modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceAround
             ) {
                 IconButton(onClick = { navController.navigate("MainScreen") }) {
@@ -110,7 +110,7 @@ fun RestaurantScreen(navController: NavController, restaurantId: Int) {
                 verticalArrangement = Arrangement.Top
             ) {
                 Row(
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.Center
                 ) {
                     Text(
@@ -135,25 +135,29 @@ fun RestaurantScreen(navController: NavController, restaurantId: Int) {
                     )
                 }
 
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier.height(16.dp))
 
-                OutlinedTextField(
-                    value = searchQuery,
-                    onValueChange = { searchQuery = it },
-                    label = { Text("Buscar platillo") },
+                TextField(
+                    value = buscarPlatillo,
+                    onValueChange = { buscarPlatillo = it },
+                    label = { Text(text = "Buscar platillo") },
                     modifier = Modifier
                         .fillMaxWidth()
-                        .background(Color.White)
+                        .border(
+                            width = 0.dp,
+                            color = Color.White,
+                            shape = RoundedCornerShape(10)
+                        ),
                 )
 
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier.height(8.dp))
 
-                Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
+                Row(modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
                     Text(text = "Menú:", color = Color.White)
                 }
 
                 val filteredMenu = restaurant.menu.filter {
-                    it.name.contains(searchQuery, ignoreCase = true)
+                    it.name.contains(buscarPlatillo, ignoreCase = true)
                 }
 
                 LazyColumn(
@@ -164,19 +168,19 @@ fun RestaurantScreen(navController: NavController, restaurantId: Int) {
                 ) {
                     items(filteredMenu) { dish ->
                         Column(
-                            modifier = Modifier
+                            modifier
                                 .padding(vertical = 4.dp)
                                 .height(250.dp)
                         ) {
                             Row(
-                                modifier = Modifier
+                                modifier
                                     .fillMaxWidth()
                                     .padding(bottom = 8.dp),
                                 horizontalArrangement = Arrangement.SpaceBetween,
                                 verticalAlignment = Alignment.CenterVertically
                             ) {
                                 Column(
-                                    modifier = Modifier.weight(1f)
+                                    modifier.weight(1f)
                                 ) {
                                     Text(text = dish.name, color = Color.White)
                                     Text(text = dish.description, color = Color.LightGray)
@@ -189,20 +193,20 @@ fun RestaurantScreen(navController: NavController, restaurantId: Int) {
                                         Toast.LENGTH_SHORT
                                     ).show()
                                 }) {
-                                    Text("Comprar")
+                                    Text(text = "Comprar")
                                 }
                             }
                             AsyncImage(
                                 model = dish.imageUrl,
                                 contentDescription = dish.description,
-                                modifier = Modifier.fillMaxSize()
+                                modifier.fillMaxSize()
                             )
                         }
                     }
                 }
             }
         } else {
-            Text("Restaurante no encontrado", color = Color.Red)
+            Text(text = "Restaurante no encontrado", color = Color.Red)
         }
     }
 }
