@@ -73,7 +73,7 @@ fun RestaurantScreen(navController: NavController, restaurantId: Int) {
                 },
                 navigationIcon = {
                     IconButton(onClick = { navController.popBackStack() }) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Volver", tint = Color.White)
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Volver", tint = Color.White)
                     }
                 },
                 colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
