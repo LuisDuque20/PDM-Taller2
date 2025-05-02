@@ -1,19 +1,12 @@
 package screens
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Search
@@ -34,12 +27,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.pdmtaller2.LDuque_00013423.restaurants
 import com.pdmtaller2.LDuque_00013423.ui.theme.FoodSpotByLDuqueTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MyOrdersScreen(navController: NavController){
+fun SearchScreen(navController: NavController){
     val modifier = Modifier
     Scaffold(
         topBar = {
@@ -65,7 +57,7 @@ fun MyOrdersScreen(navController: NavController){
                 IconButton(onClick = { navController.navigate("MainScreen") }) {
                     Icon(Icons.Filled.Home, contentDescription = "Pantalla principal", tint = Color.White)
                 }
-                IconButton(onClick = { navController.navigate("SearchScreen") }) {
+                IconButton(onClick = { navController.navigate("RestaurantScreen") }) {
                     Icon(Icons.Filled.Search, contentDescription = "Restaurantes", tint = Color.White)
                 }
                 IconButton(onClick = { navController.navigate("MyOrders") }) {
@@ -77,23 +69,23 @@ fun MyOrdersScreen(navController: NavController){
         Column(
             modifier
                 .fillMaxSize()
-                .background(Color(0xFF0a1e54))
+                .background(Color.DarkGray)
                 .padding(paddingValues)
                 .padding(horizontal = 20.dp),
             horizontalAlignment = Alignment.Start,
             verticalArrangement = Arrangement.Top
         )
         {
-            Text(text = "Mis ordenes", color = Color.White)
+            Text(text = "Restaurantes", color = Color.White)
         }
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun MyOrdersScreenPreview() {
+fun SearchScreenPreview(){
     val navController = rememberNavController()
     FoodSpotByLDuqueTheme {
-        MyOrdersScreen(navController)
+        SearchScreen(navController)
     }
 }

@@ -17,12 +17,15 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
@@ -57,27 +60,28 @@ fun MainScreen(navController: NavController) {
                     titleContentColor = Color.White
                 )
             )
-        },bottomBar = {
-            Row(modifier = Modifier.fillMaxWidth()) {
-                Button(
-                    onClick = { navController.navigate("MainScreen") },
-                    modifier = Modifier.weight(1f)
-                ) { Icon(imageVector = Icons.Filled.Home, contentDescription = "Pantalla principal") }
-                Button(
-                    onClick = { navController.navigate("RestaurantScreen") },
-                    modifier = Modifier.weight(1f)
-                ) { Icon(imageVector = Icons.Filled.Star, contentDescription = "Restaurantes") }
-                Button(
-                    onClick = { navController.navigate("MyOrders") },
-                    modifier = Modifier.weight(1f)
-                ) { Icon(imageVector = Icons.Filled.ShoppingCart, contentDescription = "Mis órdenes") }
+        },
+        bottomBar = {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceAround
+            ) {
+                IconButton(onClick = { navController.navigate("MainScreen") }) {
+                    Icon(Icons.Filled.Home, contentDescription = "Pantalla principal", tint = Color.White)
+                }
+                IconButton(onClick = { navController.navigate("SearchScreen") }) {
+                    Icon(Icons.Filled.Search, contentDescription = "Restaurantes", tint = Color.White)
+                }
+                IconButton(onClick = { navController.navigate("MyOrders") }) {
+                    Icon(Icons.Filled.ShoppingCart, contentDescription = "Mis órdenes", tint = Color.White)
+                }
             }
         }
     ) { paddingValues ->
         Column(
             modifier
                 .fillMaxSize()
-                .background(Color.DarkGray)
+                .background(Color(0xFF0a1e54))
                 .padding(paddingValues)
                 .padding(horizontal = 20.dp),
             horizontalAlignment = Alignment.Start,
@@ -102,7 +106,7 @@ fun MainScreen(navController: NavController) {
                                     .padding(10.dp)
                                     .fillMaxHeight()
                                     .width(150.dp)
-                                    .wrapContentWidth()
+                                    .width(200.dp)
                                     .border(
                                         width = 1.dp,
                                         color = Color.White,
@@ -111,7 +115,16 @@ fun MainScreen(navController: NavController) {
                                 horizontalAlignment = Alignment.CenterHorizontally,
                                 verticalArrangement = Arrangement.Center
                             ) {
-                                Text(text = restaurant.name, color = Color.White)
+                                Button(onClick = {navController.navigate("RestaurantScreen/${restaurant.id}")}
+                                    , modifier.fillMaxSize(),
+                                    shape = RoundedCornerShape(10),
+                                    colors = ButtonDefaults.buttonColors(
+                                    containerColor = Color.Green,
+                                    contentColor = Color.White
+                                ))
+                                {
+                                    Text(text = restaurant.name, color = Color.White)
+                                }
                             }
                         }
                     }
