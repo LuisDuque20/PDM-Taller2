@@ -56,7 +56,7 @@ fun MainScreen(navController: NavController) {
                     )
                 },
                 colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                    containerColor = Color.DarkGray,
+                    containerColor = Color.Blue,
                     titleContentColor = Color.White
                 )
             )
@@ -83,7 +83,7 @@ fun MainScreen(navController: NavController) {
                 .fillMaxSize()
                 .background(Color(0xFF0a1e54))
                 .padding(paddingValues)
-                .padding(horizontal = 20.dp),
+                .padding(horizontal = 20.dp, vertical = 20.dp),
             horizontalAlignment = Alignment.Start,
             verticalArrangement = Arrangement.Top
         ) {

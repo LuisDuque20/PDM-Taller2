@@ -1,5 +1,7 @@
 package com.pdmtaller2.LDuque_00013423
 
+import androidx.compose.runtime.mutableStateListOf
+
 data class Dish(
     val id: Int,
     val name: String,
@@ -15,3 +17,5 @@ data class Restaurant(
     val categories: List<String>,
     val menu: List<Dish>
 )
+
+val shoppingCart = mutableStateListOf<Dish>()
