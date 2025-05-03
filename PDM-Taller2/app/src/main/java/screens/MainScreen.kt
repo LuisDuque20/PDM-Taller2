@@ -41,11 +41,9 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import coil.compose.AsyncImage
-import com.pdmtaller2.LDuque_00013423.R
 import com.pdmtaller2.LDuque_00013423.restaurants
 import com.pdmtaller2.LDuque_00013423.ui.theme.FoodSpotByLDuqueTheme
-import java.io.File
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -138,14 +136,6 @@ fun MainScreen(navController: NavController) {
                                         contentDescription = null,
                                         contentScale = ContentScale.Crop,
                                         modifier = Modifier.fillMaxSize()
-                                    )
-                                    Text(
-                                        text = restaurant.name,
-                                        color = Color.White,
-                                        modifier = Modifier
-                                            .align(Alignment.Center)
-                                            .background(Color.Black.copy(alpha = 0.5f))
-                                            .padding(8.dp)
                                     )
                                 }
                             }
