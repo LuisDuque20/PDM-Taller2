@@ -8,11 +8,11 @@ val restaurants = listOf(
         imageUrl = R.drawable.pizzahut,
         categories = listOf("Pizzas", "Postres y Dulces", "Comida rapida"),
         menu = listOf(
-            Dish(1, "Pizza Pepperoni", "Rica pizza de pepperoni", ""),
-            Dish(2, "Pizza de Jamón", "Rica pizza de jamón con queso mozzarella", ""),
-            Dish(3, "Pizza Suprema", "Pizza con todos los ingredientes", ""),
-            Dish(4, "Brownie de Chocolate", "Brownie tibio con chispas de chocolate", ""),
-            Dish(5, "Cinnamon Rolls", "Rollos de canela glaseados", "")
+            Dish(1, "Pizza Pepperoni", "Rica pizza de pepperoni", R.drawable.pizzapep),
+            Dish(2, "Pizza de Jamón", "Rica pizza de jamón con queso mozzarella", R.drawable.pizzajam),
+            Dish(3, "Pizza Suprema", "Pizza con todos los ingredientes", R.drawable.pizzasup),
+            Dish(4, "Brownie de Chocolate", "Brownie tibio con chispas de chocolate", R.drawable.brownie),
+            Dish(5, "Cinnamon Rolls", "Rollos de canela glaseados", R.drawable.cinnamonn)
         )
     ),
     Restaurant(
@@ -22,11 +22,11 @@ val restaurants = listOf(
         imageUrl = R.drawable.burgerking,
         categories = listOf("Hamburguesas", "Papas Fritas", "Comida rapida"),
         menu = listOf(
-            Dish(6, "Whopper", "Hamburguesa con carne de res, lechuga, tomate y cebolla", ""),
-            Dish(7, "Chicken Fries", "Tiras de pollo empanizadas", ""),
-            Dish(8, "Cheeseburger", "Hamburguesa con queso", ""),
-            Dish(9, "Papas Fritas Grandes", "Papas crujientes con sal", ""),
-            Dish(10, "Nuggets de Pollo", "Piezas de pollo empanizado", "")
+            Dish(6, "Whopper", "Hamburguesa con carne de res, lechuga, tomate y cebolla", R.drawable.whopper),
+            Dish(7, "Chicken Fries", "Tiras de pollo empanizadas", R.drawable.chickenfries),
+            Dish(8, "Cheeseburger", "Hamburguesa con queso", R.drawable.cheeseburger),
+            Dish(9, "Papas Fritas Grandes", "Papas crujientes con sal", R.drawable.papasfritasg),
+            Dish(10, "Nuggets de Pollo", "Piezas de pollo empanizado", R.drawable.nuggets)
         )
     ),
     Restaurant(
@@ -36,11 +36,11 @@ val restaurants = listOf(
         imageUrl = R.drawable.sushiitto,
         categories = listOf("Sushi", "Rollos", "Comida asiatica"),
         menu = listOf(
-            Dish(11, "California Roll", "Rollos de sushi con aguacate, cangrejo y pepino", ""),
-            Dish(12, "Tempura Roll", "Rollos de sushi con camarones tempura", ""),
-            Dish(13, "Philadelphia Roll", "Rollos con queso crema y salmón", ""),
-            Dish(14, "Yakimeshi", "Arroz frito japonés", ""),
-            Dish(15, "Gyozas", "Empanadas japonesas rellenas", "")
+            Dish(11, "California Roll", "Rollos de sushi con aguacate, cangrejo y pepino", R.drawable.californiaroll),
+            Dish(12, "Tempura Roll", "Rollos de sushi con camarones tempura", R.drawable.tempuraroll),
+            Dish(13, "Philadelphia Roll", "Rollos con queso crema y salmón", R.drawable.philiroll),
+            Dish(14, "Yakimeshi", "Arroz frito japonés", R.drawable.yakimeshi),
+            Dish(15, "Gyozas", "Empanadas japonesas rellenas", R.drawable.gyoza)
         )
     ),
     Restaurant(
@@ -50,11 +50,11 @@ val restaurants = listOf(
         imageUrl = R.drawable.tacobell,
         categories = listOf("Tacos", "Burritos", "Comida mexicana"),
         menu = listOf(
-            Dish(16, "Crunchy Taco", "Taco crujiente con carne, lechuga y queso", ""),
-            Dish(17, "Bean Burrito", "Burrito de frijoles con queso y salsa", ""),
-            Dish(18, "Quesadilla de Pollo", "Quesadilla con queso y pollo", ""),
-            Dish(19, "Nachos Supremos", "Nachos con carne, queso y jalapeños", ""),
-            Dish(20, "Taco Supreme", "Taco con crema, lechuga y tomate", "")
+            Dish(16, "Crunchy Taco", "Taco crujiente con carne, lechuga y queso", R.drawable.crunchy),
+            Dish(17, "Bean Burrito", "Burrito de frijoles con queso y salsa", R.drawable.beanburrito),
+            Dish(18, "Quesadilla de Pollo", "Quesadilla con queso y pollo", R.drawable.quesadillapollo),
+            Dish(19, "Nachos Supremos", "Nachos con carne, queso y jalapeños", R.drawable.nachossup),
+            Dish(20, "Taco Supreme", "Taco con crema, lechuga y tomate", R.drawable.tacosup)
         )
     ),
     Restaurant(
@@ -64,11 +64,11 @@ val restaurants = listOf(
         imageUrl = R.drawable.kfc,
         categories = listOf("Pollo", "Complementos", "Comida rapida"),
         menu = listOf(
-            Dish(21, "Original Recipe Chicken", "Pollo frito con receta original", ""),
-            Dish(22, "Mashed Potatoes", "Puré de papas con salsa", ""),
-            Dish(23, "Famous Bowl", "Tazón de puré, maíz, pollo y queso", ""),
-            Dish(24, "Mac & Cheese", "Macarrones con queso", ""),
-            Dish(25, "Pollo Picante", "Pollo frito extra crujiente", "")
+            Dish(21, "Original Recipe Chicken", "Pollo frito con receta original", R.drawable.chickenkfc),
+            Dish(22, "Mashed Potatoes", "Puré de papas con salsa", R.drawable.kfcmashes),
+            Dish(23, "Famous Bowl", "Tazón de puré, maíz, pollo y queso", R.drawable.kfcfamousbowl),
+            Dish(24, "Mac & Cheese", "Macarrones con queso", R.drawable.kfcmachesse),
+            Dish(25, "Pollo Picante", "Pollo frito extra crujiente", R.drawable.chickenkfc)
         )
     ),
     Restaurant(
@@ -78,11 +78,11 @@ val restaurants = listOf(
         imageUrl = R.drawable.olivegarden,
         categories = listOf("Comida italiana", "Pasta", "Ensaladas"),
         menu = listOf(
-            Dish(26, "Lasagna", "Lasaña con carne y salsa marinara", ""),
-            Dish(27, "Fettuccine Alfredo", "Pasta con salsa Alfredo", ""),
-            Dish(28, "Spaghetti con albóndigas", "Espaguetis con albóndigas caseras", ""),
-            Dish(29, "Ensalada Italiana", "Ensalada fresca con aderezo italiano", ""),
-            Dish(30, "Pan de ajo", "Pan horneado con ajo y mantequilla", "")
+            Dish(26, "Lasagna", "Lasaña con carne y salsa marinara", R.drawable.lasagna),
+            Dish(27, "Fettuccine Alfredo", "Pasta con salsa Alfredo", R.drawable.alfredo),
+            Dish(28, "Spaghetti con albóndigas", "Espaguetis con albóndigas caseras", R.drawable.espagueti),
+            Dish(29, "Ensalada Italiana", "Ensalada fresca con aderezo italiano", R.drawable.ensaladaitaliana),
+            Dish(30, "Pan de ajo", "Pan horneado con ajo y mantequilla", R.drawable.pandeajo)
         )
     ),
     Restaurant(
@@ -92,11 +92,11 @@ val restaurants = listOf(
         imageUrl = R.drawable.greenbowl,
         categories = listOf("Comida saludable", "Ensaladas", "Vegetariano"),
         menu = listOf(
-            Dish(31, "Bowl de Quinoa", "Quinoa con vegetales y hummus", ""),
-            Dish(32, "Wrap de Pollo", "Wrap integral con pollo y vegetales", ""),
-            Dish(33, "Smoothie Verde", "Batido con espinaca, plátano y manzana", ""),
-            Dish(34, "Ensalada César", "Ensalada con pollo, crutones y aderezo césar", ""),
-            Dish(35, "Tazón vegano", "Tazón con tofu y vegetales al vapor", "")
+            Dish(31, "Bowl de Quinoa", "Quinoa con vegetales y hummus", R.drawable.quinoa),
+            Dish(32, "Wrap de Pollo", "Wrap integral con pollo y vegetales", R.drawable.wrapdepollo),
+            Dish(33, "Smoothie Verde", "Batido con espinaca, plátano y manzana", R.drawable.smothie),
+            Dish(34, "Ensalada César", "Ensalada con pollo, crutones y aderezo césar", R.drawable.cesar),
+            Dish(35, "Tazón vegano", "Tazón con tofu y vegetales al vapor", R.drawable.vegan)
         )
     ),
     Restaurant(
@@ -106,11 +106,11 @@ val restaurants = listOf(
         imageUrl = R.drawable.sweetparadise,
         categories = listOf("Postres y Dulces", "Repostería"),
         menu = listOf(
-            Dish(36, "Cheesecake", "Pastel de queso con frutas", ""),
-            Dish(37, "Brownie", "Brownie de chocolate con nueces", ""),
-            Dish(38, "Cupcake de vainilla", "Cupcake con frosting de vainilla", ""),
-            Dish(39, "Tarta de Manzana", "Tarta caliente con manzana y canela", ""),
-            Dish(40, "Donas Glaseadas", "Donas con glaseado de azúcar", "")
+            Dish(36, "Cheesecake", "Pastel de queso con frutas", R.drawable.cheesecake),
+            Dish(37, "Brownie", "Brownie de chocolate con nueces", R.drawable.brownie),
+            Dish(38, "Cupcake de vainilla", "Cupcake con frosting de vainilla", R.drawable.cupcake),
+            Dish(39, "Tarta de Manzana", "Tarta caliente con manzana y canela", R.drawable.tartademanzana),
+            Dish(40, "Donas Glaseadas", "Donas con glaseado de azúcar", R.drawable.donas)
         )
     ),
     Restaurant(
@@ -120,11 +120,11 @@ val restaurants = listOf(
         imageUrl = R.drawable.bebidas,
         categories = listOf("Bebidas", "Jugos", "Smoothies"),
         menu = listOf(
-            Dish(41, "Limonada", "Limonada natural con hielo", ""),
-            Dish(42, "Té Helado", "Té negro con limón", ""),
-            Dish(43, "Smoothie de Fresa", "Batido de fresa con yogurt", ""),
-            Dish(44, "Café Latte", "Café con leche espumada", ""),
-            Dish(45, "Chocolate Caliente", "Bebida caliente con cacao y leche", "")
+            Dish(41, "Limonada", "Limonada natural con hielo", R.drawable.limonada),
+            Dish(42, "Té Helado", "Té negro con limón", R.drawable.te),
+            Dish(43, "Smoothie de Fresa", "Batido de fresa con yogurt", R.drawable.sfresa),
+            Dish(44, "Café Latte", "Café con leche espumada", R.drawable.latte),
+            Dish(45, "Chocolate Caliente", "Bebida caliente con cacao y leche", R.drawable.chocolatecaliente)
         )
     ),
     Restaurant(
@@ -134,11 +134,11 @@ val restaurants = listOf(
         imageUrl = R.drawable.taqueria,
         categories = listOf("Comida mexicana", "Tacos", "Antojitos"),
         menu = listOf(
-            Dish(46, "Tacos al Pastor", "Tacos con carne de cerdo y piña", ""),
-            Dish(47, "Tacos de Barbacoa", "Tacos con carne de res deshebrada", ""),
-            Dish(48, "Quesadilla de queso", "Tortilla de maíz con queso derretido", ""),
-            Dish(49, "Sopes", "Base de maíz con frijoles, carne y crema", ""),
-            Dish(50, "Tamales", "Tamales de elote y de pollo", "")
+            Dish(46, "Tacos al Pastor", "Tacos con carne de cerdo y piña", R.drawable.tacospastor),
+            Dish(47, "Tacos de Barbacoa", "Tacos con carne de res deshebrada", R.drawable.tacosbarbacoa),
+            Dish(48, "Quesadilla de queso", "Tortilla de maíz con queso derretido", R.drawable.quesadillapollo),
+            Dish(49, "Sopes", "Base de maíz con frijoles, carne y crema", R.drawable.sopes),
+            Dish(50, "Tamales", "Tamales de elote y de pollo", R.drawable.tamales)
         )
     ),
     Restaurant(
@@ -148,11 +148,11 @@ val restaurants = listOf(
         imageUrl = R.drawable.ramenhouse,
         categories = listOf("Comida asiatica", "Japonesa", "Sopas"),
         menu = listOf(
-            Dish(51, "Ramen Tonkotsu", "Ramen con caldo de cerdo y huevo", ""),
-            Dish(52, "Ramen Shoyu", "Ramen con salsa de soya", ""),
-            Dish(53, "Ramen Picante", "Ramen con caldo picante", ""),
-            Dish(54, "Takoyaki", "Bolas de pulpo japonesas", ""),
-            Dish(55, "Onigiri", "Triángulos de arroz rellenos", "")
+            Dish(51, "Ramen Tonkotsu", "Ramen con caldo de cerdo y huevo", R.drawable.tonkotsu),
+            Dish(52, "Ramen Shoyu", "Ramen con salsa de soya", R.drawable.shoyu),
+            Dish(53, "Ramen Picante", "Ramen con caldo picante", R.drawable.te),
+            Dish(54, "Takoyaki", "Bolas de pulpo japonesas", R.drawable.ramenpicante),
+            Dish(55, "Onigiri", "Triángulos de arroz rellenos", R.drawable.onigiri)
         )
     ),
     Restaurant(
@@ -162,11 +162,11 @@ val restaurants = listOf(
         imageUrl = R.drawable.lavitaebella,
         categories = listOf("Comida italiana", "Pasta", "Pizzas"),
         menu = listOf(
-            Dish(56, "Risotto", "Arroz cremoso con hongos", ""),
-            Dish(57, "Pizza Margherita", "Pizza con tomate, mozzarella y albahaca", ""),
-            Dish(58, "Ravioli", "Pasta rellena con ricotta", ""),
-            Dish(59, "Minestrone", "Sopa italiana de vegetales", ""),
-            Dish(60, "Bruschetta", "Pan tostado con tomate y ajo", "")
+            Dish(56, "Risotto", "Arroz cremoso con hongos", R.drawable.rissotto),
+            Dish(57, "Pizza Margherita", "Pizza con tomate, mozzarella y albahaca", R.drawable.margarita),
+            Dish(58, "Ravioli", "Pasta rellena con ricotta", R.drawable.ravioli),
+            Dish(59, "Minestrone", "Sopa italiana de vegetales", R.drawable.minestrone),
+            Dish(60, "Bruschetta", "Pan tostado con tomate y ajo", R.drawable.bruscheta)
         )
     ),
     Restaurant(
@@ -176,11 +176,11 @@ val restaurants = listOf(
         imageUrl = R.drawable.freshandfit,
         categories = listOf("Comida saludable", "Vegano", "Bajo en calorías"),
         menu = listOf(
-            Dish(61, "Ensalada de quinoa", "Quinoa con espinaca, zanahoria y aderezo de limón", ""),
-            Dish(62, "Tazón de acai", "Acai con frutas y granola", ""),
-            Dish(63, "Sopa de lentejas", "Lentejas con vegetales", ""),
-            Dish(64, "Wrap vegano", "Tortilla integral con tofu y hummus", ""),
-            Dish(65, "Batido detox", "Jugo verde con pepino y apio", "")
+            Dish(61, "Ensalada de quinoa", "Quinoa con espinaca, zanahoria y aderezo de limón", R.drawable.quinoa),
+            Dish(62, "Tazón de acai", "Acai con frutas y granola", R.drawable.acai),
+            Dish(63, "Sopa de lentejas", "Lentejas con vegetales", R.drawable.lentejas),
+            Dish(64, "Wrap vegano", "Tortilla integral con tofu y hummus", R.drawable.wrapvegano),
+            Dish(65, "Batido detox", "Jugo verde con pepino y apio", R.drawable.smothie)
         )
     ),
     Restaurant(
@@ -190,11 +190,11 @@ val restaurants = listOf(
         imageUrl = R.drawable.refrescarte,
         categories = listOf("Bebidas", "Jugos Naturales", "Tés"),
         menu = listOf(
-            Dish(66, "Agua de Jamaica", "Bebida fría de flor de Jamaica", ""),
-            Dish(67, "Licuado de Plátano", "Batido de plátano con leche", ""),
-            Dish(68, "Té Verde con Menta", "Té natural servido frío", ""),
-            Dish(69, "Smoothie Tropical", "Smoothie con mango y piña", ""),
-            Dish(70, "Agua de Horchata", "Bebida de arroz con canela", "")
+            Dish(66, "Agua de Jamaica", "Bebida fría de flor de Jamaica", R.drawable.jamaica),
+            Dish(67, "Licuado de Plátano", "Batido de plátano con leche", R.drawable.platano),
+            Dish(68, "Té Verde con Menta", "Té natural servido frío", R.drawable.platano),
+            Dish(69, "Smoothie Tropical", "Smoothie con mango y piña", R.drawable.smothietropical),
+            Dish(70, "Agua de Horchata", "Bebida de arroz con canela", R.drawable.horchata)
         )
     )
 
