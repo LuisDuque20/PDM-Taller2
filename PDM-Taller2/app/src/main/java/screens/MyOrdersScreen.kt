@@ -7,14 +7,11 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -37,26 +34,29 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import coil.compose.AsyncImage
-import com.pdmtaller2.LDuque_00013423.shoppingCart
 import com.pdmtaller2.LDuque_00013423.ui.theme.FoodSpotByLDuqueTheme
+import com.pdmtaller2.LDuque_00013423.viewModel.MyOrdersViewModel
+import androidx.compose.runtime.LaunchedEffect
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MyOrdersScreen(navController: NavController) {
-    val modifier = Modifier
-    val myOrders = shoppingCart
+    val viewModel: MyOrdersViewModel = viewModel()
+    val myOrders = viewModel.orders
+
+    LaunchedEffect(Unit) {
+        viewModel.actualizarOrdenes()
+    }
+
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
                 title = {
-                    Text(
-                        "FoodSpot",
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis
-                    )
+                    Text("FoodSpot", maxLines = 1, overflow = TextOverflow.Ellipsis)
                 },
                 colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
                     containerColor = Color.Blue,
@@ -73,7 +73,7 @@ fun MyOrdersScreen(navController: NavController) {
                     Icon(Icons.Filled.Home, contentDescription = "Pantalla principal", tint = Color.White)
                 }
                 IconButton(onClick = { navController.navigate("SearchScreen") }) {
-                    Icon(Icons.Filled.Search, contentDescription = "Restaurantes", tint = Color.White)
+                    Icon(Icons.Filled.Search, contentDescription = "Buscar", tint = Color.White)
                 }
                 IconButton(onClick = { navController.navigate("MyOrders") }) {
                     Icon(Icons.Filled.ShoppingCart, contentDescription = "Mis órdenes", tint = Color.White)
@@ -82,7 +82,7 @@ fun MyOrdersScreen(navController: NavController) {
         }
     ) { paddingValues ->
         Column(
-            modifier
+            Modifier
                 .fillMaxSize()
                 .background(Color(0xFF0a1e54))
                 .padding(paddingValues)
@@ -91,9 +91,10 @@ fun MyOrdersScreen(navController: NavController) {
             verticalArrangement = Arrangement.Top
         ) {
             Text(text = "Mis órdenes", color = Color.White)
+
             if (myOrders.isNotEmpty()) {
                 LazyColumn(
-                    modifier
+                    Modifier
                         .fillMaxSize()
                         .border(width = 2.dp, color = Color.White, shape = RoundedCornerShape(10))
                         .padding(horizontal = 15.dp, vertical = 15.dp)
@@ -119,10 +120,11 @@ fun MyOrdersScreen(navController: NavController) {
             } else {
                 Text(text = "No hay órdenes registradas", color = Color.White)
             }
-
         }
     }
 }
+
+
 
 
 @Preview(showBackground = true)

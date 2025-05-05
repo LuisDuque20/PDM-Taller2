@@ -41,7 +41,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.pdmtaller2.LDuque_00013423.restaurants
+import com.pdmtaller2.LDuque_00013423.models.restaurants
 import com.pdmtaller2.LDuque_00013423.ui.theme.FoodSpotByLDuqueTheme
 
 

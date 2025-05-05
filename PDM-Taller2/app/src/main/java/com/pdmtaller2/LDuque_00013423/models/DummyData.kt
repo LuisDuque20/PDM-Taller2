@@ -1,4 +1,6 @@
-package com.pdmtaller2.LDuque_00013423
+package com.pdmtaller2.LDuque_00013423.models
+
+import com.pdmtaller2.LDuque_00013423.R
 
 val restaurants = listOf(
     Restaurant(

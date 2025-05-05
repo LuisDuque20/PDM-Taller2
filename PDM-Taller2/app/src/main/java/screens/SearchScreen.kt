@@ -33,7 +33,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.pdmtaller2.LDuque_00013423.restaurants
+import com.pdmtaller2.LDuque_00013423.models.restaurants
 import com.pdmtaller2.LDuque_00013423.ui.theme.FoodSpotByLDuqueTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.*
@@ -45,32 +45,21 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.draw.clip
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.pdmtaller2.LDuque_00013423.viewModel.SearchViewModel
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SearchScreen(navController: NavController) {
-    var buscar by remember { mutableStateOf("") }
-
-    val filteredRestaurants = remember(buscar) {
-        restaurants.filter { restaurant ->
-            val nameMatch = restaurant.name.contains(buscar, ignoreCase = true)
-            val categoryMatch = restaurant.categories.any { it.contains(buscar, ignoreCase = true) }
-            val dishMatch = restaurant.menu.any { it.name.contains(buscar, ignoreCase = true) }
-
-            nameMatch || categoryMatch || dishMatch
-        }
-    }
+    val searchViewModel: SearchViewModel = viewModel()
+    val filteredRestaurants by searchViewModel.filteredRestaurants
 
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
                 title = {
-                    Text(
-                        "FoodSpot",
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis
-                    )
+                    Text("FoodSpot", maxLines = 1, overflow = TextOverflow.Ellipsis)
                 },
                 colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
                     containerColor = Color.Blue,
@@ -86,7 +75,7 @@ fun SearchScreen(navController: NavController) {
                 IconButton(onClick = { navController.navigate("MainScreen") }) {
                     Icon(Icons.Filled.Home, contentDescription = "Pantalla principal", tint = Color.White)
                 }
-                IconButton(onClick = { navController.navigate("RestaurantScreen") }) {
+                IconButton(onClick = { navController.navigate("SearchScreen") }) {
                     Icon(Icons.Filled.Search, contentDescription = "Restaurantes", tint = Color.White)
                 }
                 IconButton(onClick = { navController.navigate("MyOrders") }) {
@@ -104,8 +93,8 @@ fun SearchScreen(navController: NavController) {
                 .background(Color(0xFF0a1e54))
         ) {
             TextField(
-                value = buscar,
-                onValueChange = { buscar = it },
+                value = searchViewModel.buscar,
+                onValueChange = { searchViewModel.actualizarBusqueda(it) },
                 label = { Text("Buscar", color = Color.Black)},
                 singleLine = true,
                 modifier = Modifier
