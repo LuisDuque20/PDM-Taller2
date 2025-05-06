@@ -39,25 +39,24 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.lazy.items
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.pdmtaller2.LDuque_00013423.models.restaurants
 import com.pdmtaller2.LDuque_00013423.ui.theme.FoodSpotByLDuqueTheme
+import com.pdmtaller2.LDuque_00013423.viewModel.MainViewModel
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen(navController: NavController) {
+    val viewModel: MainViewModel = viewModel()
     val modifier = Modifier
+
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
                 title = {
-                    Text(
-                        "FoodSpot",
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis
-                    )
+                    Text("FoodSpot", maxLines = 1, overflow = TextOverflow.Ellipsis)
                 },
                 colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
                     containerColor = Color.Blue,
@@ -89,20 +88,11 @@ fun MainScreen(navController: NavController) {
                 .padding(paddingValues)
                 .padding(horizontal = 20.dp, vertical = 20.dp)
         ) {
-            val categories = listOf(
-                "Comida rapida",
-                "Comida mexicana",
-                "Comida italiana",
-                "Comida asiatica",
-                "Comida saludable",
-                "Postres y Dulces",
-                "Bebidas"
-            )
-            items(categories) { category ->
+            items(viewModel.categories) { category ->
                 Column {
                     Text(text = category, color = Color.White)
 
-                    val filteredRestaurants = restaurants.filter { it.categories.contains(category) }
+                    val filteredRestaurants = viewModel.getRestaurantsByCategory(category)
 
                     LazyRow(
                         modifier
@@ -117,25 +107,22 @@ fun MainScreen(navController: NavController) {
                                     .padding(10.dp)
                                     .fillMaxHeight()
                                     .width(200.dp)
-                                    .border(
-                                        width = 1.dp,
-                                        color = Color.White,
-                                        shape = RoundedCornerShape(10)
-                                    ),
+                                    .border(width = 1.dp, color = Color.White, shape = RoundedCornerShape(10)),
                                 horizontalAlignment = Alignment.CenterHorizontally,
                                 verticalArrangement = Arrangement.Center
                             ) {
                                 Box(
                                     modifier = Modifier
                                         .fillMaxSize()
-                                        .clickable { navController.navigate("RestaurantScreen/${restaurant.id}")}
+                                        .clickable { navController.navigate("RestaurantScreen/${restaurant.id}") }
                                         .background(Color.White)
+                                        .border(width = 1.dp, color= Color.Transparent, shape = RoundedCornerShape(10))
                                 ) {
                                     Image(
                                         painter = painterResource(id = restaurant.imageUrl),
                                         contentDescription = null,
                                         contentScale = ContentScale.Crop,
-                                        modifier = Modifier.fillMaxSize()
+                                        modifier = Modifier.fillMaxSize().border(width = 1.dp, color= Color.Transparent, shape = RoundedCornerShape(10))
                                     )
                                 }
                             }
@@ -147,6 +134,7 @@ fun MainScreen(navController: NavController) {
         }
     }
 }
+
 
 @Preview(showBackground = true)
 @Composable
